@@ -47,18 +47,24 @@ class Controller {
   }
 
   setCurrentStep(index) {
+    var lastStep = this.currentStep;
     this.currentStep = index;
+    onStep(this.currentStep, lastStep);
   }
 
   nextStep() {
+    var lastStep = this.currentStep;
     this.currentStep = (this.currentStep % this.steps.length) + 1;
+    onStep(this.currentStep, lastStep);
   }
   preStep() {
     this.currentStep = this.currentStep - 1;
+    onStep(this.currentStep, this.currentStep + 1);
   }
   complete() {
     this.onFinish();
     this.completeWizard = true;
+    this.currentStep = 1;
   }
 
 }
@@ -66,6 +72,7 @@ class Controller {
 const component = {
   bindings: {
     onFinish: '&',
+    onChangePage: '&',
     setMainColor: '@',
     setMainHoverColor: '@',
   },
