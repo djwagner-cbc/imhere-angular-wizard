@@ -63,9 +63,9 @@ class Controller {
     this.onStepChange({cur:this.currentStep, prev:lastStep});
   }
   complete() {
-    this.onFinish();
     this.completeWizard = true;
     this.currentStep = 1;
+    this.onFinish();
   }
 
 }
@@ -76,6 +76,8 @@ const component = {
     onStepChange: '&',
     setMainColor: '@',
     setMainHoverColor: '@',
+    completeWizard: '=',
+    currentStep: '='
   },
   transclude: true,
   controller: Controller,
