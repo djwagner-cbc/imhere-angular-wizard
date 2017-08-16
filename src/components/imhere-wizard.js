@@ -49,17 +49,18 @@ class Controller {
   setCurrentStep(index) {
     var lastStep = this.currentStep;
     this.currentStep = index;
-    this.onStepChange(this.currentStep, lastStep);
+    this.onStepChange({cur:this.currentStep, prev:lastStep});
   }
 
   nextStep() {
     var lastStep = this.currentStep;
     this.currentStep = (this.currentStep % this.steps.length) + 1;
-    this.onStepChange(this.currentStep, lastStep);
+    this.onStepChange({cur:this.currentStep, prev:lastStep});
   }
   preStep() {
+    var lastStep = this.currentStep;
     this.currentStep = this.currentStep - 1;
-    this.onStepChange(this.currentStep, this.currentStep + 1);
+    this.onStepChange({cur:this.currentStep, prev:lastStep});
   }
   complete() {
     this.onFinish();
@@ -83,5 +84,5 @@ const component = {
 };
 
 export default angular
-  .module('imhere-angular-wizard.imhere-wizard', [])
-  .component('imhereWizard', component);
+.module('imhere-angular-wizard.imhere-wizard', [])
+.component('imhereWizard', component);

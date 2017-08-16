@@ -79,6 +79,7 @@ Let's go step by step to see how this works.
 
 1) You need to declare a master `imhere-wizard` directive. This wizard directive, has the following options as attributes:
 * **on-finish**: Here you can put a function to be called when the wizard is finished. The syntax here is very similar to `ng-click`
+* **on-step-change**: Here you can put a function like "myStepChange(cur, prev)" to handle a change of step.
 * **set-main-color**: Here you can set the wizard main color style.
 * **set-main-hover-Color**: Here you can set the wizard buttons hover color style. Default darken(main-color).
 
