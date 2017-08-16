@@ -3,3 +3,8 @@
 /coverage
 
 /npm-debug.log
+/.vs
+/obj/Debug
+/angularWizard.csproj
+/angularWizard.csproj.user
+/angularWizard.sln
